@@ -313,7 +313,7 @@ function getRenderedPrompt() {
   return prompt.replace(/\[\]/g, () => {
     const field = fields[fieldIndex++];
     const value = field ? values[field.key] : "";
-    return value ? value : "[]";
+    return value ? `[${value}]` : "[]";
   });
 }
 
