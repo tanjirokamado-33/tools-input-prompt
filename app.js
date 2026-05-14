@@ -27,6 +27,7 @@ const state = {
   showOriginal: false,
   prompts: {},
   fields: {},
+  globalFields: [],
   values: loadValues(),
 };
 
@@ -63,7 +64,7 @@ function bindEvents() {
   });
 
   elements.clearButton.addEventListener("click", () => {
-    state.values[state.activeTemplateId] = {};
+    state.values = {};
     saveValues();
     render();
   });
@@ -108,17 +109,18 @@ async function loadPrompts() {
   });
 
   results.forEach(([id, prompt]) => {
+    const template = templates.find((item) => item.id === id);
     state.prompts[id] = prompt;
-    state.fields[id] = parsePromptFields(prompt);
-    state.values[id] = state.values[id] || {};
+    state.fields[id] = parsePromptFields(prompt, template.label);
   });
+
+  state.globalFields = buildGlobalFields();
 
   elements.loadStatus.textContent = "3 prompts ready";
 }
 
-function parsePromptFields(prompt) {
+function parsePromptFields(prompt, templateLabel) {
   const fields = [];
-  const usedKeys = new Map();
   let fallbackCount = 0;
   const lines = prompt.split(/\r?\n/);
 
@@ -127,9 +129,8 @@ function parsePromptFields(prompt) {
 
     matches.forEach((match, indexOnLine) => {
       const label = inferLabel(line, match.index);
-      const cleanLabel = label || `Field ${++fallbackCount}`;
-      const baseKey = toFieldKey(cleanLabel) || `field_${fallbackCount || lineIndex + 1}`;
-      const key = uniqueKey(baseKey, usedKeys);
+      const cleanLabel = label || `${templateLabel} Field ${++fallbackCount}`;
+      const key = toFieldKey(cleanLabel) || `${toFieldKey(templateLabel)}_field_${fallbackCount || lineIndex + 1}`;
 
       fields.push({
         key,
@@ -142,6 +143,36 @@ function parsePromptFields(prompt) {
   });
 
   return fields;
+}
+
+function buildGlobalFields() {
+  const globalFieldMap = new Map();
+
+  templates.forEach((template) => {
+    const fields = state.fields[template.id] || [];
+
+    fields.forEach((field) => {
+      if (!globalFieldMap.has(field.key)) {
+        globalFieldMap.set(field.key, {
+          ...field,
+          usedIn: [template.label],
+        });
+        return;
+      }
+
+      const existingField = globalFieldMap.get(field.key);
+
+      if (!existingField.usedIn.includes(template.label)) {
+        existingField.usedIn.push(template.label);
+      }
+
+      if (existingField.control.type === "text" && field.control.type !== "text") {
+        existingField.control = field.control;
+      }
+    });
+  });
+
+  return [...globalFieldMap.values()];
 }
 
 function inferLabel(line, placeholderIndex) {
@@ -180,12 +211,6 @@ function toFieldKey(label) {
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "_")
     .replace(/^_+|_+$/g, "");
-}
-
-function uniqueKey(baseKey, usedKeys) {
-  const count = usedKeys.get(baseKey) || 0;
-  usedKeys.set(baseKey, count + 1);
-  return count === 0 ? baseKey : `${baseKey}_${count + 1}`;
 }
 
 function inferControl(label) {
@@ -231,7 +256,7 @@ function render() {
     tab.classList.toggle("is-active", tab.dataset.templateId === activeTemplate.id);
   });
 
-  elements.inputTitle.textContent = activeTemplate.inputTitle;
+  elements.inputTitle.textContent = "All Prompt Inputs";
   elements.promptTitle.textContent = activeTemplate.title;
   elements.toggleModeButton.textContent = state.showOriginal ? "Show filled" : "Show original";
 
@@ -241,18 +266,16 @@ function render() {
 }
 
 function renderMeta() {
-  const activeTemplate = getActiveTemplate();
-  const fields = state.fields[activeTemplate.id] || [];
-  const values = state.values[activeTemplate.id] || {};
+  const fields = state.globalFields || [];
+  const values = state.values || {};
   const filledCount = fields.filter((field) => String(values[field.key] || "").trim()).length;
 
-  elements.inputMeta.textContent = `${filledCount}/${fields.length} fields filled`;
+  elements.inputMeta.textContent = `${filledCount}/${fields.length} shared fields filled`;
 }
 
 function renderForm() {
-  const activeTemplate = getActiveTemplate();
-  const fields = state.fields[activeTemplate.id] || [];
-  const values = state.values[activeTemplate.id] || {};
+  const fields = state.globalFields || [];
+  const values = state.values || {};
 
   elements.fieldForm.innerHTML = "";
 
@@ -270,7 +293,7 @@ function renderForm() {
     const control = createControl(field, values[field.key] || "");
 
     label.textContent = field.label;
-    hint.textContent = field.control.hint || "";
+    hint.textContent = getFieldHint(field);
     node.classList.toggle("is-long", field.control.type === "textarea");
     controlHost.append(control);
     elements.fieldForm.append(node);
@@ -302,14 +325,20 @@ function createControl(field, value) {
   control.value = value;
   control.placeholder = field.label;
   control.addEventListener("input", () => {
-    state.values[state.activeTemplateId] = state.values[state.activeTemplateId] || {};
-    state.values[state.activeTemplateId][field.key] = control.value;
+    state.values[field.key] = control.value;
     saveValues();
     renderMeta();
     renderPrompt();
   });
 
   return control;
+}
+
+function getFieldHint(field) {
+  const usage = field.usedIn && field.usedIn.length > 0 ? `Used in: ${field.usedIn.join(", ")}` : "";
+  const hint = field.control.hint || "";
+
+  return [usage, hint].filter(Boolean).join(" · ");
 }
 
 function renderPrompt() {
@@ -329,7 +358,7 @@ function getRenderedPrompt() {
   const activeTemplate = getActiveTemplate();
   const prompt = getActivePrompt();
   const fields = state.fields[activeTemplate.id] || [];
-  const values = state.values[activeTemplate.id] || {};
+  const values = state.values || {};
   let fieldIndex = 0;
 
   return prompt.replace(/\[\]/g, () => {
