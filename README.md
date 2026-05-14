@@ -6,7 +6,7 @@ Static GitHub Pages tool for filling reusable SEO prompt templates.
 
 - Shows 3 prompt sections: `H1`, `Outline`, and `Writing`.
 - Left side: input fields generated from `[]` placeholders.
-- Right side: prompt preview with the input values filled in.
+- Right side: prompt preview with the input values filled in as `[value]`.
 - Copies the completed prompt to your clipboard.
 - Saves your latest inputs in the browser.
 
@@ -55,6 +55,12 @@ Version: []
 ```
 
 The app uses the label before `:` as the input name.
+
+When you type `abc` into an input, the prompt output keeps the bracket format:
+
+```txt
+[abc]
+```
 
 ## Local Preview
 
