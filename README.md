@@ -5,7 +5,8 @@ Static GitHub Pages tool for filling reusable SEO prompt templates.
 ## What It Does
 
 - Shows 3 prompt sections: `H1`, `Outline`, and `Writing`.
-- Left side: input fields generated from `[]` placeholders.
+- Left side: one shared input list generated from all 3 prompt templates.
+- Duplicate fields such as `Primary Keyword`, `Secondary Keywords`, and `Version` appear only once.
 - Right side: prompt preview with the input values filled in as `[value]`.
 - Copies the completed prompt to your clipboard.
 - Saves your latest inputs in the browser.
