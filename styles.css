@@ -268,14 +268,10 @@ h2 {
 }
 
 .field-hint {
-  display: none;
+  display: block;
   color: var(--muted);
   font-size: 0.78rem;
   line-height: 1.35;
-}
-
-.field-row.is-long .field-hint {
-  display: block;
 }
 
 .field-control input,
