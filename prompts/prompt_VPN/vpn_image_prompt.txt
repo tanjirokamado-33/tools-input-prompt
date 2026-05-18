@@ -1,0 +1,143 @@
+﻿You are an expert in SEO image strategy, visual intent mapping, and editorial thumbnail design.
+
+Your task is to generate:
+- 1 thumbnail image prompt
+- 4 in-article image prompts
+
+All prompts must be production-ready, highly relevant to the content, and optimized for SEO and user experience.
+
+---
+INPUT:
+
+VPN Title / H1: []
+VPN Main Entity: []
+VPN Image Context: []
+VPN Article Content: []
+---
+
+STEP 1 â€” ENTITY EXTRACTION:
+
+Identify:
+- Primary entity (core topic)
+- Secondary entity (platform/brand, e.g. Proxy vs VPN)
+- Problem entity (error / limitation / restriction)
+- Outcome entity (benefit/result)
+
+---
+
+STEP 2 â€” THUMBNAIL PROMPT (CRITICAL):
+
+Create a premium 16:9 thumbnail (800x450px)
+
+Layout:
+
+LEFT SIDE:
+- A realistic illustrated human hand (clean flat vector style)
+- The hand is holding a glowing cyan shield
+
+SHIELD:
+- The shield is the main focal point
+- Inside the shield, place the SECONDARY ENTITY (logo if exists, Proxy vs VPN)
+- Add a small streaming/play icon near the bottom
+- Strong neon cyan glow
+
+BACKGROUND:
+- Deep navy (#07122b)
+- Subtle grid lines and technical UI dots
+- Flowing cyan data streams (representing traffic)
+
+CONFLICT VISUAL (MANDATORY):
+- Add red â€œproblem signalsâ€ (e.g. proxy error, blocking, detection)
+- These signals must visibly hit and be deflected by the shield
+
+RIGHT SIDE:
+- Place clean headline text:
+  [TITLE]
+
+---
+
+TEXT LAYOUT RULES (MANDATORY):
+
+- Use modern sans-serif font
+- Text must be clean, straight, and professionally aligned
+- Balanced line breaks (avoid awkward short/long lines)
+- Form a stable rectangular text block
+- Maintain strong hierarchy (main title largest)
+- Keep consistent spacing (letter + line spacing)
+- Do NOT distort, curve, or warp text
+- Do NOT overcrowd text area
+- Maintain clear margins
+- No overlap with main subject
+- Text occupies ~35â€“45% right side
+- Must be readable at thumbnail size
+
+---
+
+THUMBNAIL STYLE RULES:
+
+- NO footer text
+- NO irrelevant objects
+- NO clutter
+- Proxy vs VPN (or secondary entity) must be visually obvious
+- Strong contrast: cyan (protection) vs red (threat)
+- Must communicate meaning in under 2 seconds
+
+---
+
+STEP 3 â€” IN-ARTICLE IMAGE MAPPING:
+
+Create 4 images with these intents:
+
+1. Overview / Best Options
+2. How It Works (process/flow)
+3. Comparison (free vs paid or options)
+4. Context Expansion (country / scenario / use case)
+
+---
+
+STEP 4 â€” IN-ARTICLE IMAGE RULES (VERY IMPORTANT):
+
+- MUST NOT reuse thumbnail layout
+- NO hand holding shield
+- MUST match section meaning exactly
+- MUST visually represent the paragraph content
+- Use infographic / dashboard / UI / system visualization style
+- Include secondary entity (e.g. Proxy vs VPN) where relevant
+- Clean cyber UI design
+- No large headline text like thumbnail
+- No footer text
+
+---
+
+STEP 5 â€” OUTPUT FORMAT:
+
+A. THUMBNAIL PROMPT
+
+B. IMAGE 1:
+- Prompt
+- Alt text (50â€“100 characters, SEO-friendly)
+- Placement suggestion
+
+B. IMAGE 2:
+...
+
+B. IMAGE 3:
+...
+
+B. IMAGE 4:
+...
+
+---
+
+STEP 6 â€” QUALITY CHECK (MANDATORY):
+
+Before returning, ensure:
+
+- Thumbnail matches TITLE exactly
+- Secondary entity is clearly visible
+- Problem vs solution is visually clear
+- In-article images are NOT duplicates of thumbnail
+- Each image clearly represents its section
+- Text layout is clean and balanced
+- No clutter, no confusion, no generic visuals
+

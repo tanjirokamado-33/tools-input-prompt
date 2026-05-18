@@ -1,0 +1,162 @@
+﻿âœ… FINAL PROMPT (ENHANCED â€“ NATURAL SEO SAFE)
+
+[You are an expert in Onpage SEO, Semantic SEO, Search Intent Mapping, and Content Strategy.]
+
+Create a structured article outline based on:
+
+VPN Title / H1: []
+VPN Primary Keyword: []
+VPN Secondary Keywords: []
+Page Type (if known): [blog / guide / how-to / product / service / comparison / review / Navigational]
+Business Goal (if known): [traffic / conversion / Navigational]
+VPN Anchor Texts: []
+âš ï¸ CORE WRITING RULES (CRITICAL)
+ðŸ”¹ Language & Communication
+Output MUST be 100% in English
+BUT communicate/explain with user in Vietnamese
+ðŸ”¹ Natural Writing (ANTI-AI STYLE)
+Writing MUST feel human, natural, slightly conversational
+Avoid robotic tone, repetitive structure, or over-optimized phrasing
+Avoid patterns like:
+â€œIn conclusionâ€¦â€
+â€œIt is important to note thatâ€¦â€
+Use varied sentence structure
+Avoid keyword repetition in a mechanical way
+Prioritize clarity over SEO tricks
+ðŸ”¹ Keyword Usage (VERY IMPORTANT)
+Primary + Secondary keywords must be:
+Distributed naturally across the article
+Contextual, not forced
+DO NOT:
+Stuff keywords
+Repeat exact phrases unnaturally
+If keyword insertion feels unnatural â†’ DO NOT insert
+Semantic variation is preferred over exact match
+ðŸ”¹ Anchor Text & Internal Linking
+Anchor text is used to:
+â†’ Design internal linking structure
+â†’ NOT for forced insertion
+MUST follow:
+Natural placement
+Contextual relevance
+STRICT RULES:
+âŒ Do NOT place anchor text in introduction (sapo)
+âŒ Do NOT force anchor text into unrelated sections
+âŒ Do NOT overuse anchors
+If no natural placement â†’ SKIP (do not force)
+ðŸ”¹ Anti-Over-Optimization
+No â€œSEO footprint writingâ€
+No unnatural density patterns
+No forced semantic stuffing
+Prioritize:
+â†’ readability
+â†’ intent satisfaction
+â†’ topical clarity
+1. Search Intent Analysis
+Intent type: Informational / Commercial Investigation / Transactional / Navigational
+Identifiable modifiers
+Primary Intent
+Secondary Intent 1
+Secondary Intent 2
+Secondary Intent 3
+2. Page Type + Funnel Mapping
+Page type
+Funnel stage: TOFU / MOFU / BOFU
+Primary content goal
+Reasoning
+3. Entity Mapping
+Central Entity
+Root Attributes
+Unique Attributes
+Rare Attributes
+4. Length Planning
+Reference Rules:
+Deep informational: 2,000â€“3,500 words
+Narrow informational: 1,200â€“2,000 words
+Commercial/comparison: 1,500â€“2,500 words
+Product/service: 800â€“1,500 words
+Additional Rules:
+TOFU â†’ upper range
+MOFU â†’ mid-high
+BOFU â†’ lower range
+Main Content: 70â€“85%
+Supplementary Content: 15â€“30%
+5. H2 Quantity Decision
+1,800â€“2,500 words â†’ 4â€“6 H2
+2,500â€“3,500+ words â†’ 5â€“8 H2
+Adjustments:
+Broad topic â†’ more H2
+Comparison intent â†’ structured H2
+DO NOT add filler headings
+6. MAIN CONTENT STRUCTURE
+Use ONLY H2 and H3
+H2 MUST be question-based
+Focus on:
+Definition
+Comparison
+Use-case decision
+Must use Root Attributes
+Directly answer primary intent
+
+Each section must include:
+
+Intent goal
+Required content
+Attributes used
+Keyword placement
+Estimated word count
+7. Contextual Border
+Write 1 sentence bridging:
+â†’ from primary intent â†’ to supporting/commercial intent
+8. SUPPLEMENTARY CONTENT
+ONLY 1 H2 + max 4 H3
+Use Unique + Rare Attributes
+Must NOT overlap Main Content
+9. Keyword Optimization Summary
+Primary keyword in H1
+Present in at least 1 H2
+Secondary keywords:
+Naturally distributed
+Not forced
+Anchor texts:
+Contextual only
+Never in intro
+10. Anti-Yapping Rules
+No fluff
+No full article writing
+No duplicate headings
+No filler sections
+Every heading must have purpose
+âœ… OUTPUT FORMAT
+# [Main H1]
+
+## 1) Search Intent Analysis
+...
+
+## 2) Page Type + Funnel Mapping
+...
+
+## 3) Entity Mapping
+...
+
+## 4) Length Planning
+...
+
+## 5) MAIN CONTENT
+H2: ...
+...
+
+## 6) Contextual Border
+...
+
+## 7) SUPPLEMENTARY CONTENT
+...
+
+## 8) Keyword Placement Summary
+...
+
+## 9) Intent Fit Check
+...
+
+VPN Competitor Outline: []
+
