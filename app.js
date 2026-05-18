@@ -339,10 +339,6 @@ function inferControl(label) {
     return { type: "select", options: ["", "Android", "PC", "iOS", "Console", "Web"] };
   }
 
-  if (normalized.includes("category")) {
-    return { type: "select", options: ["", "Game", "App", "Tools", "Action", "RPG", "Simulation", "VPN", "Privacy", "Security"] };
-  }
-
   return { type: "text" };
 }
 
@@ -464,10 +460,47 @@ function createControl(field, value) {
 function getFieldHint(field) {
   const usage = field.usedIn && field.usedIn.length > 0 ? `Used in: ${field.usedIn.join(", ")}` : "";
   const customHints = {
+    android_version_required: "(điền phiên bản Android tối thiểu cần hỗ trợ, ví dụ Android 8.0+)",
+    anchor_text_link_type: "(điền anchor text và loại link nội bộ cần dùng)",
+    anchor_texts: "(điền danh sách anchor text cần chèn trong bài, mỗi dòng một anchor)",
+    brand_site_name: "(điền tên domain hoặc tên website)",
+    category: "(điền danh mục nội dung tùy ý, ví dụ VPN, Privacy, Security, Game, App)",
+    content_type: "(điền loại nội dung cần viết, ví dụ review, guide, comparison, mod apk)",
+    current_version: "(điền phiên bản hiện tại, ví dụ v1.2.3)",
+    developer: "(điền tên nhà phát triển hoặc publisher)",
+    file_size: "(điền dung lượng file, ví dụ 120 MB)",
+    fieldvaluetitle_h1: "(điền tiêu đề H1 đã tạo hoặc tiêu đề chính của bài)",
+    game_app_type: "(điền loại game hoặc app, ví dụ Action Game, VPN App, Productivity App)",
+    game_name: "(điền tên game hoặc ứng dụng)",
+    outline: "(dán outline bài viết: gồm H2/H3, cấu trúc bài và ý chính từng phần)",
+    platform: "(điền nền tảng, ví dụ Android, PC, iOS, Web)",
+    primary_keyword: "(điền từ khóa chính, giữ đúng cụm keyword cần SEO)",
+    secondary_keywords: "(điền các từ khóa phụ, mỗi dòng hoặc cách nhau bằng dấu phẩy)",
+    title_h1: "(điền tiêu đề H1 hoặc title chính của bài)",
+    version: "(điền phiên bản, ví dụ v1.2.3)",
+    vpn_anchor_texts: "(điền danh sách anchor text cho internal link, mỗi dòng một anchor)",
+    vpn_article_content: "(dán nội dung bài viết hoặc đoạn nội dung cần dùng làm ngữ cảnh)",
+    vpn_brand: "(điền tên domain)",
+    vpn_business_goal: "(điền mục tiêu kinh doanh, ví dụ traffic, conversion, download, sign-up)",
+    vpn_category: "(điền danh mục VPN tùy ý, ví dụ Privacy, Streaming, Security, Travel)",
+    vpn_competitor_outline: "(dán outline đối thủ để tham khảo cấu trúc, H2/H3 và các ý chính)",
+    vpn_content_type: "(điền loại nội dung VPN, ví dụ review, guide, comparison, tutorial)",
+    vpn_image_context: "(điền bối cảnh hình ảnh cần tạo, ví dụ app screen, privacy concept, secure browsing)",
+    vpn_key_benefits_features: "(điền các lợi ích hoặc tính năng chính của VPN, mỗi dòng một ý)",
+    vpn_main_entity: "(điền thực thể chính của hình ảnh, ví dụ tên VPN, thiết bị, người dùng, bản đồ)",
     vpn_outline:
-      "Dán outline bài viết VPN cần viết: H2/H3, cấu trúc bài, ý chính từng phần, hoặc outline đã tạo từ tab VPN Outline.",
+      "(dán outline bài viết VPN cần viết: gồm H2/H3, cấu trúc bài, ý chính từng phần, hoặc outline đã tạo từ tab VPN Outline)",
+    vpn_primary_keyword: "(điền từ khóa chính VPN, giữ đúng cụm keyword cần SEO)",
+    vpn_secondary_keywords: "(điền các từ khóa phụ VPN, mỗi dòng hoặc cách nhau bằng dấu phẩy)",
+    vpn_title_h1: "(điền tiêu đề H1 của bài VPN)",
   };
-  const hint = customHints[field.key] || field.control.hint || "";
+  const customHint = customHints[field.key];
+
+  if (customHint) {
+    return customHint;
+  }
+
+  const hint = field.control.hint || "";
 
   return [usage, hint].filter(Boolean).join(" - ");
 }
