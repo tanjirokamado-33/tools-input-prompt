@@ -339,7 +339,3 @@ Content
 🔹 HARD CONSTRAINTS
 RuleStatusFollow article structure✅ RequiredNo missing sections✅ RequiredNo anchor in Sapo✅ RequiredKeywords distributed naturally✅ RequiredAnchors spread across article✅ RequiredNo keyword/anchor duplication✅ RequiredNo fake stats or claims✅ RequiredLegal disclaimer included✅ RequiredNatural flow maintained✅ RequiredStay within word count target✅ RequiredGlobal English tone✅ Required
 
-
-
-
-
