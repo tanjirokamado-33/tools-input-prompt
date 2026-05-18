@@ -463,7 +463,11 @@ function createControl(field, value) {
 
 function getFieldHint(field) {
   const usage = field.usedIn && field.usedIn.length > 0 ? `Used in: ${field.usedIn.join(", ")}` : "";
-  const hint = field.control.hint || "";
+  const customHints = {
+    vpn_outline:
+      "Dán outline bài viết VPN cần viết: H2/H3, cấu trúc bài, ý chính từng phần, hoặc outline đã tạo từ tab VPN Outline.",
+  };
+  const hint = customHints[field.key] || field.control.hint || "";
 
   return [usage, hint].filter(Boolean).join(" - ");
 }
