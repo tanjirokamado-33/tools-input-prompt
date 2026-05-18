@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Input Builder</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SEO Prompt Workspace</p>
+          <h1>Prompt Studio</h1>
+        </div>
+        <div class="status-pill" id="loadStatus">Loading prompts</div>
+      </header>
+
+      <nav class="category-tabs" aria-label="Prompt categories">
+        <button class="category-tab is-active" type="button" data-category-id="apk">Game/App APK</button>
+        <button class="category-tab" type="button" data-category-id="vpn">VPN SEO</button>
+      </nav>
+
+      <nav class="template-tabs" id="templateTabs" aria-label="Prompt templates"></nav>
+
+      <section class="workspace" aria-live="polite">
+        <aside class="input-panel" aria-label="Prompt inputs">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Input fields</p>
+              <h2 id="inputTitle">All Prompt Inputs</h2>
+              <p class="panel-meta" id="inputMeta">0 fields</p>
+            </div>
+            <button class="ghost-button" id="clearButton" type="button">Clear all</button>
+          </div>
+          <form id="fieldForm" class="field-form"></form>
+        </aside>
+
+        <section class="prompt-panel" aria-label="Generated prompt">
+          <div class="panel-heading prompt-heading">
+            <div>
+              <p class="panel-kicker">Prompt output</p>
+              <h2 id="promptTitle">H1 Prompt</h2>
+              <p class="panel-meta" id="promptMeta">Ready</p>
+            </div>
+            <div class="prompt-actions">
+              <button class="ghost-button" id="toggleModeButton" type="button">Show original</button>
+              <button class="primary-button" id="copyButton" type="button">Copy prompt</button>
+            </div>
+          </div>
+          <pre id="promptPreview" class="prompt-preview"></pre>
+        </section>
+      </section>
+    </main>
+
+    <template id="fieldTemplate">
+      <label class="field-row">
+        <span class="field-label"></span>
+        <span class="field-hint"></span>
+        <span class="field-control"></span>
+      </label>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
